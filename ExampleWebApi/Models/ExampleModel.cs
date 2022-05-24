@@ -63,6 +63,10 @@ namespace ExampleWebApi.Models
         public OptionSetModel AliasedOptionSet { get; set; }
     }
 
+
+    // можно писать свои конвертеры
+    // если он используется в одной модели, то можно оставить в одном файле
+    // этот конвертер не зарегистрирован глобально
     public class BoolOptionSetConverter : CrmAttributeConverter<OptionSetModel, bool>
     {
         public override OptionSetModel GetTypedConvertedValue(Entity entity, string attributeName)
