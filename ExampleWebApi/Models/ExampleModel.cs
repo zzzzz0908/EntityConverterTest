@@ -1,13 +1,13 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using EntityConverter.Core;
+using Microsoft.Xrm.Sdk;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace CRM_console
+namespace ExampleWebApi.Models
 {
-    public class ExampleModel : BaseModel
+    public class ExampleModel
     {
         [CrmAttribute("uds_contractid")]
         public Guid Id { get; set; }
@@ -78,4 +78,5 @@ namespace CRM_console
             };
         }
     }
+
 }

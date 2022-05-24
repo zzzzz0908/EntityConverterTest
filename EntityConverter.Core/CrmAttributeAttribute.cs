@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CRM_console
+namespace EntityConverter.Core
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class CrmAttributeAttribute : Attribute // or CrmFieldAttribute      атрибут из црм перемешивается с атрибутом C#, как лучше назвать поле из црм
@@ -12,7 +12,6 @@ namespace CRM_console
         private Type converterType;
 
         public string AttributeName { get; set; }
-        //public Type ConverterType { get; set; }
 
         public Type ConverterType
         {
@@ -21,7 +20,7 @@ namespace CRM_console
             {
                 converterType = value.IsSubclassOf(typeof(CrmAttributeConverter))
                     ? value
-                    : throw new ArgumentException("Type is not Converter");    
+                    : throw new ArgumentException("Type is not Converter");
             }
 
         }

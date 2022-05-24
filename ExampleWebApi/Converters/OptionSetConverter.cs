@@ -1,19 +1,18 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using EntityConverter.Core;
+using ExampleWebApi.Models;
+using Microsoft.Xrm.Sdk;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace CRM_console
+namespace ExampleWebApi.Converters
 {
     public class OptionSetConverter : CrmAttributeConverter<OptionSetModel, OptionSetValue>
     {
         public override OptionSetModel GetTypedConvertedValue(Entity entity, string attributeName)
         {
-            var optionSet = (entity[attributeName] is AliasedValue aliasedValue)
-                            ? aliasedValue.Value as OptionSetValue
-                            : entity[attributeName] as OptionSetValue;
+            var optionSet = entity.GetUnaliasedAttributeValue<OptionSetValue>(attributeName);
 
             return new OptionSetModel
             {

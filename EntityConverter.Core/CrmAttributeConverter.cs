@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CRM_console
+namespace EntityConverter.Core
 {
     public abstract class CrmAttributeConverter
     {
@@ -18,8 +18,6 @@ namespace CRM_console
     {
         public override Type PropertyType => typeof(TProperty);
         public override Type CrmAttributeType => typeof(TCrmAttribute);
-
-        //public abstract TProperty GetConvertedValue<TProperty>(Entity entity, string attributeName);
 
         public sealed override object GetConvertedValue(Entity entity, string attributeName)
         {
